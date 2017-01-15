@@ -9,6 +9,7 @@ ENV PYTHONUNBUFFERED 1
 COPY ./requirements /requirements
 
 RUN pip install -r /requirements/production.txt \
+    pip install gunicorn \
     && groupadd -r django \
     && useradd -r -g django django
 

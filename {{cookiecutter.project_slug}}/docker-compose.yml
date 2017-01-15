@@ -2,14 +2,12 @@ version: '2'
 
 volumes:
   postgres_data: {}
-  postgres_backup: {}
 
 services:
   postgres:
-    build: ./compose/postgres
+    image: postgres:{{ cookiecutter.postgresql_version }}
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - postgres_backup:/backups
     env_file: .env
 
   django:
